@@ -1,0 +1,284 @@
+{
+    // ========================================================================================================
+    // VSCode 設定
+    // ========================================================================================================
+    "files.exclude": { // 隱藏檔案或資料夾 (false 時，顯示檔案或資料夾)
+        "**/.git": false // 顯示 git 資料夾
+    },
+    "files.associations": { // 檔案關聯設定 (將檔案關聯到特定語言)
+        "*.embeddedhtml": "html", // Embedded HTML
+        "*.json": "jsonc", // JSON with comments
+        "*.jsx": "javascript" // React JSX
+    },
+    "workbench.startupEditor": "none", // 關閉啟動時的歡迎頁面
+    "extensions.ignoreRecommendations": false, // 延伸套件的通知是否不再顯示
+    "files.autoSave": "onFocusChange", // 切換檔案時 自動存檔
+    "files.defaultLanguage": "${activeEditorLanguage}", // ctrl+N 新建文件後默認的語言 (${activeEditorLanguage} 表示當前編輯器的語言)
+    "files.autoGuessEncoding": true, // 自動偵測檔案編碼格式
+    "files.trimTrailingWhitespace": true, // 保存時，刪除每一行末尾的空格
+    "files.insertFinalNewline": false, // 若為 true 則儲存後檔案最末尾加一整行空行
+    "breadcrumbs.enabled": true, // 麵包屑 (檔案路徑的導覽)
+    "editor.formatOnSave": true, // 保存時自動格式化
+    "editor.formatOnType": true, // 輸入時就進行格式化，默認觸發字符較少，分號可以觸發
+    "editor.mouseWheelZoom": true, // 按住 Ctrl 鍵並滾動鼠標滾輪時可對編輯器字體大小進行縮放
+    "editor.renderControlCharacters": true, // 顯示特殊字元
+    "editor.minimap.enabled": true, // 開啟右邊小地圖
+    "editor.minimap.renderCharacters": true, // 小地圖渲染字體
+    "editor.detectIndentation": false, // 根據檔案內容，控制當檔案開啟時，是否自動偵測 tabSize 和 insertSpaces
+    "editor.scrollBeyondLastLine": false, // false 時將防止編輯器(頂端)滾動到最後一行
+    "editor.padding.bottom": 300, // 控制編輯器底部邊緣和最後一行之間的空間量，以像素為單位。須將 editor.scrollBeyondLastLine 設為 false
+    //   "editor.rulers": [80, 120], // 在 80~120 字的地方畫線提醒字數不要太多
+    "editor.lineHeight": 19, // 行高
+    "editor.fontSize": 14, // 字體大小
+    "editor.cursorWidth": 2, // 游標粗細
+    "editor.tabSize": 4, // 全域預設縮排
+    // Json Format 設定
+    "[json][jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features" // JSON 使用 VSCode 內建的格式化器
+    },
+    // ========================================================================================================
+    // Font 設定
+    // ========================================================================================================
+    // Fira Code: https://github.com/tonsky/FiraCode
+    "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace", // 在編輯器中使用的字體
+    "editor.fontLigatures": true, // 啟用連字字型
+    // ========================================================================================================
+    // Background 設定
+    // ========================================================================================================
+    "background.editor": {
+        "useFront": true, // 將影像放在程式碼上方或下方
+        "style": {
+            "background-position": "center",
+            "background-size": "cover",
+            "background-repeat": "no-repeat",
+            "opacity": 0.05
+        }, // 影像的自訂樣式 (MDN Reference)
+        // Local images can be dragged into the browser to quickly get the file protocol address from the address bar
+        "images": [
+            "file:///D:/Others/Backgrounds/VSCodeEditorBackground.png"
+        ], // 自訂影像，支援 https 和 file 協議
+        "interval": 0, // 輪播間隔的秒數，預設 0 為停用
+        "random": false // 是否隨機顯示影像
+    },
+    "background.fullscreen": {},
+    "background.sidebar": {},
+    "background.panel": {
+        "useFront": true, // 將影像放在程式碼上方或下方
+        "style": {
+            "background-position": "center",
+            "background-size": "cover",
+            "background-repeat": "no-repeat",
+            "opacity": 0.05
+        }, // 影像的自訂樣式 (MDN Reference)
+        // Local images can be dragged into the browser to quickly get the file protocol address from the address bar
+        "images": [
+            "file:///D:/Others/Backgrounds/VSCodeEditorPanelBackground.png"
+        ], // 自訂影像，支援 https 和 file 協議
+        "interval": 0, // 輪播間隔的秒數，預設 0 為停用
+        "random": false // 是否隨機顯示影像
+    },
+    // ========================================================================================================
+    // Prettier 設定
+    // ========================================================================================================
+    "[javascript][javascriptreact][typescript][typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }, // JavaScript 使用 prettier 格式化
+    "prettier.printWidth": 120, // 超過 120 個字元就換行
+    "prettier.tabWidth": 4, // 設置 tab 的寬度 (預設為 2)
+    "prettier.singleQuote": false, // 使用雙引號 (預設為 false，使用單引號)
+    "prettier.semi": true, // 語句結尾是否自動加上分號
+    "prettier.trailingComma": "es5", // 物件和陣列最後一個元素後面加上逗號 (es5: 只有物件和陣列，all: 所有可加逗號的地方)
+    "prettier.useTabs": false, // 是否使用 tab 來縮排 (預設為 false，使用空格)
+    "prettier.arrowParens": "always", // 箭頭函數只有一個參數時，是否加上括號 (avoid: 不加括號，always: 加上括號)
+    // ========================================================================================================
+    // Icon Themes 設定
+    // ========================================================================================================
+    "workbench.iconTheme": "material-icon-theme", // 檔案圖示主題 (須安裝 Material Icon Theme 套件)
+    // ========================================================================================================
+    // Translation 設定
+    // ========================================================================================================
+    "googleTranslateExt.languages": [
+        "zh-TW"
+    ], // 設置 google 翻譯的語言 快捷鍵 `Ctrl+Shift+T`
+    // ========================================================================================================
+    // codesnap 設定
+    // ========================================================================================================
+    "codesnap.backgroundColor": "transparent", // background-color 背景色彩
+    // "codesnap.boxShadow": "0px 0px 15px rgba(0, 0, 0, 0.55)", //  box-shadow 色彩 (白色 Theme)
+    "codesnap.boxShadow": "none", //  box-shadow 色彩 (黑色 Theme)
+    "codesnap.showWindowControls": true, // 是否顯示 OS 視窗按鈕樣式
+    "codesnap.showLineNumbers": false, // 是否顯示行號
+    "codesnap.shutterAction": "save", // 快門按鈕的行為 ["copy", "save"]
+    // ========================================================================================================
+    // Markdown 設定
+    // ========================================================================================================
+    // Markdown Preview Enhanced 設定
+    "markdown-preview-enhanced.previewTheme": "github-dark.css", // Markdown 預覽的主題
+    "markdown-preview-enhanced.codeBlockTheme": "github-dark.css", // Markdown 預覽的程式碼區塊主題
+    // ========================================================================================================
+    // VSCode Pets 設定
+    // ========================================================================================================
+    // VSCode Pets settings
+    "vscode-pets.disableEffects": true, // 是否禁用特效
+    "vscode-pets.petSize": "medium", // 寵物大小 (small, medium, large)
+    "vscode-pets.petType": "cat", // 寵物類型
+    "vscode-pets.petColor": "orange", // 寵物顏色
+    "vscode-pets.position": "explorer", // 寵物位置 (explorer, panel)
+    "vscode-pets.theme": "beach", // 主題 (none, forest, castle, beach, winter)
+    "vscode-pets.throwBallWithMouse": true, // 是否使用滑鼠丟球
+    // ========================================================================================================
+    // terminal 設定
+    // ========================================================================================================
+    "terminal.integrated.defaultProfile.windows": "PowerShell", // 預設終端機
+    "terminal.integrated.fontFamily": "'FiraCode Nerd Font'", // 在終端機中使用的字體 (使用 Nerd 字體，避免 Oh My Posh Icon 顯示亂碼)
+    //   "terminal.integrated.cursorBlinking": true, // 終端目前位置閃爍
+    // ========================================================================================================
+    // GitHub Copilot 設定
+    // ========================================================================================================
+    // 參考連結：https://github.com/doggy8088/github-copilot-configs
+    // GitHub Copilot 設定
+    "github.copilot.enable": { // 是否啟用 GitHub Copilot
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": true
+    },
+    "github.copilot.renameSuggestions.triggerAutomatically": true, // 是否自動觸發重命名建議
+    "window.commandCenter": true, // 若要啟用 chat.commandCenter.enabled 設定，必須將此設定設為 true
+    "chat.commandCenter.enabled": true, // 是否顯示命令中心
+    "workbench.commandPalette.experimental.askChatLocation": "chatView", // Ask Chat Location (chatView 會留下歷史記錄)
+    "github.copilot.chat.search.semanticTextResults": true, // 在搜尋檢視中啟用語意搜尋結果
+    // GitHub Copilot Chat 設定
+    "github.copilot.chat.followUps": "never", // 是否要在聊天中建議跟進訊息，提供你下一個提示的建議
+    "github.copilot.chat.localeOverride": "zh-TW", // 回應語言設定
+    "github.copilot.chat.useProjectTemplates": true, // 使用 /new 時，是否使用專案模板
+    "github.copilot.chat.scopeSelection": true, // 如果使用者使用 /explain 並且使用中編輯器沒有選取，是否提示使用者選取特定符號範圍
+    "github.copilot.chat.agent.thinkingTool": true, // 是否啟用思考工具
+    "github.copilot.nextEditSuggestions.enabled": false, // 是否啟用下一個編輯建議 (NES) 功能，NES 可以根據最近的變更建議下一個編輯 (https://aka.ms/vscode-nes)
+    "chat.detectParticipant.enabled": false, // 是否啟用自動檢測參與者 (true 似乎經常找錯聊天參與者)
+    // GitHub Copilot Chat (Inline Chat) 設定
+    "inlineChat.holdToSpeech": true, // 啟用按住不放 Ctrl+U 或 Ctrl+I 開始語音對話
+    "inlineChat.finishOnType": false, // 在編輯器中輸入時，自動結束 Inline Chat 對話 (true 會自動結束)
+    "github.copilot.chat.editor.temporalContext.enabled": true, // 是否要在 Copilot 要求中包含最近檢視及編輯過的檔案
+    "github.copilot.chat.startDebugging.enabled": true, // 在 Chat View 啟用實驗性的 /startDebugging 命令，幫你快速在 VS Code 初始化偵錯相關設定
+    "github.copilot.chat.setupTests.enabled": true, // 在 Chat View 啟用實驗性的 /setupTests 命令，幫你快速在 VS Code 初始化測試相關設定
+    // GitHub Copilot Edit 設定
+    "github.copilot.chat.edits.suggestRelatedFilesForTests": true, // 是否在編輯建議中建議相關的測試檔案
+    "github.copilot.chat.edits.suggestRelatedFilesFromGitHistory": true, // 是否在編輯建議中建議相關的 Git 歷史檔案
+    "github.copilot.chat.codesearch.enabled": true, // 是否啟用 #codebase 變數的代理人原始碼搜尋功能，嘗試多種不同的搜尋條件
+    "github.copilot.chat.newWorkspaceCreation.enabled": true, // 是否啟用 @workspce /new 命令，使用相關的 GitHub 專案作為專案範本
+    "chat.editing.confirmEditRequestRemoval": true, // 是否在編輯建議中確認移除編輯請求
+    "chat.agent.enabled": true, // 是否啟用 Copilot Agent Mode
+    "chat.agent.maxRequests": 50, // Agent Mode 最大編輯請求數量 (default: 15)
+    // GitHub Copilot Accessibility (Voice) 設定
+    "accessibility.voice.speechLanguage": "zh-TW", // 設定語音輸入的語言為繁體中文
+    "accessibility.voice.autoSynthesize": false, // 是否在 Copilot 回應時自動合成語音
+    "accessibility.voice.speechTimeout": 1500, // 設定語音輸入後可停頓的時間
+    // ========================================================================================================
+    // Code Runner 設定
+    // ========================================================================================================
+    "code-runner.runInTerminal": true, // 設置成 false 會在"輸出"中輸出，無法進行輸入
+    "code-runner.saveFileBeforeRun": true, // 是否在 run code 前保存該檔案
+    "code-runner.preserveFocus": true, // 若為 false，run code 後光標會聚焦到終端上。如果需要頻繁輸入數據可設為 false
+    "code-runner.clearPreviousOutput": false, // 每次 run code 前清空屬於 code runner 的終端消息
+    "code-runner.executorMap": { // 設置 code runner 的命令行為
+        "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "cpp": "cd $dir && g++ -std=c++2a -fconcepts $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+        "python": "$pythonPath $fullFileName"
+    },
+    // ========================================================================================================
+    // C/C++ Formatter 設定
+    // ========================================================================================================
+    "C_Cpp.clang_format_sortIncludes": true, // 格式化時調整 include 的順序（按字母排序）
+    "C_Cpp.intelliSenseEngine": "default", // 可以為 default 或 Tag Parser，後者較老，功能較簡單。具體差別參考 cpptools 擴展文檔
+    "C_Cpp.clang_format_style": "{BasedOnStyle: Google, IndentWidth: 4, IndentCaseLabels: false, TabWidth: 4, UseTab: ForIndentation, ColumnLimit: 0}", // Google排版風格
+    // "C_Cpp.clang_format_fallbackStyle": "Visual Studio", // 預設排版風格
+    // "C_Cpp.errorSquiggles": "Disabled", // 若有 clan g的 lint，可以關掉
+    // "C_Cpp.autocomplete": "Disabled", // 若有 clang 的補全，可以關掉
+    // ========================================================================================================
+    // Python formatter and linter 設定
+    // ========================================================================================================
+    "[python]": {
+        "editor.formatOnSave": true, // 保存時自動格式化
+        "editor.codeActionsOnSave": {
+            // 保存時觸發的動作
+            "source.fixAll": "explicit", // 修復所有問題
+            "source.organizeImports": "explicit" // import 順序自動排序 (isort)
+        },
+        "editor.defaultFormatter": "charliermarsh.ruff" // 使用 ruff (須安裝 charliermarsh.ruff 套件)
+        // "editor.defaultFormatter": "ms-python.autopep8" // 使用 autopep8 (須安裝 ms-python.autopep8 套件)
+    },
+    // Jupyter Notebook formatter and linter 設定
+    "notebook.formatOnSave.enabled": true, // 保存時自動格式化
+    "notebook.codeActionsOnSave": {
+        // 保存時觸發的動作
+        "notebook.source.fixAll": "explicit", // 修復所有問題
+        "notebook.source.organizeImports": "explicit" // import 順序自動排序 (isort)
+    },
+    // ========================================================================================================
+    // JavaScript 設定
+    // ========================================================================================================
+    // "[javascript, html, json, handlebars]": {
+    //     "editor.defaultFormatter": "esbenp.prettier-vscode"
+    //     // "editor.defaultFormatter": "vscode.typescript-language-features", // VSCode TS
+    //     // "editor.defaultFormatter": "rvest.vs-code-prettier-eslint", // Prettier ESLint
+    // },
+    "javascript.inlayHints.parameterNames.enabled": "literals", // 參數名稱嵌入提示例如顯示函數調用中的參數名稱 [none, literals, all]
+    // ========================================================================================================
+    // Emmet 設定
+    // ========================================================================================================
+    // "emmet.includeLanguages": { // 在預設不支援的語言中啟用 Emmet 縮寫
+    //     "javascript": "html"
+    // },
+    // VSCode Emmet 壞掉時可將以下兩項設為 true
+    "emmet.triggerExpansionOnTab": true, // 啟用時，按下 Tab 鍵即可展開 Emmet 縮寫
+    "emmet.useInlineCompletions": true, // 如果為 'true'，Emmet 將會使用內嵌完成來建議擴充
+    // ========================================================================================================
+    // liveSassCompile 設定
+    // ========================================================================================================
+    // 編譯後產生的檔案格式 (可產生多個)
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "compressed", // compressed: 壓縮格式, expanded: 展開格式
+            "extensionName": ".min.css", // 編譯後綴名
+            "savePath": "~/../css" // 編譯後保存的路徑
+        }
+    ],
+    // 瀏覽器相容性設定
+    "liveSassCompile.settings.autoprefix": [
+        "> 1%", // 超過1%的瀏覽器
+        "last 2 versions", // 最後兩個版本的瀏覽器
+        "IE 10" // IE 10
+    ],
+    // 排除特定資料夾，不執行編譯
+    "liveSassCompile.settings.excludeList": [
+        "/**/node_modules/**",
+        "/.vscode/**"
+    ],
+    // ========================================================================================================
+    // ESLint 設定
+    // ========================================================================================================
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    }, // 儲存時自動修正 ESLint
+    "eslint.options": {
+        "extensions": [
+            ".html",
+            ".js",
+            ".jsx",
+            ".ts",
+            ".tsx",
+            ".vue",
+        ]
+    },
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+    ], // 使用 ESLint 驗證的語言
+    // ========================================================================================================
+    // PHP 設定
+    // ========================================================================================================
+    "php.validate.executablePath": "C:/xampp/php/php.exe" // php 執行擋路徑
+}

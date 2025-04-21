@@ -1,0 +1,145 @@
+{
+    "recommendations": [
+        // ==============================================================================================
+        // General
+        // ==============================================================================================
+        // Display
+        "pkief.material-icon-theme", // Material Icon Theme
+        "ms-ceintl.vscode-language-pack-zh-hant", // Chinese (Traditional) Language
+        "streetsidesoftware.code-spell-checker", // Code Spell Checker
+        "oderwat.indent-rainbow", // Indent Rainbow
+        "wayou.vscode-todo-highlight", // Todo Highlight
+        "gruntfuggly.todo-tree", // Todo Tree
+        "emilast.logfilehighlighter", // Log File Highlighter
+        "christian-kohler.path-intellisense", // Path Intellisense
+        "vittorioromeo.expand-selection-to-scope", // Expand Selection to Scope
+        "tonybaloney.vscode-pets", // VSCode Pets
+        // Previews
+        "randomfractalsinc.vscode-data-table", // Data Table Renderers
+        "grapecity.gc-excelviewer", // Excel Viewer
+        "kisstkondoros.vscode-gutter-preview", // Image Preview
+        "analytic-signal.preview-pdf", // PDF Preview
+        // Git
+        "eamodio.gitlens", // GitLens
+        "mhutchie.git-graph", // Git Graph
+        // GitHub
+        "github.copilot", // GitHub Copilot
+        "github.copilot-chat", // GitHub Copilot Chat
+        "github.vscode-github-actions", // GitHub Actions
+        // Remote
+        "ms-vscode-remote.vscode-remote-extensionpack", // Remote Development
+        "ms-vscode.remote-explorer", // Remote Explorer
+        // Docker
+        "ms-azuretools.vscode-docker", // Docker
+        "docker.docker", // Docker DX
+        // Tools
+        "formulahendry.code-runner", // Code-Runner
+        "benshabatnoam.google-translate-ext", // Google Translate
+        "sandcastle.vscode-open", // VSCode Open
+        "adpyke.codesnap", // CodeSnap
+        "ms-vsliveshare.vsliveshare", // Live Share
+        "jbockle.jbockle-format-files", // Format Files
+        "nhoizey.gremlins", // Gremlins tracker
+        "postman.postman-for-vscode", // Postman
+        // Project Management
+        "howardzuo.vscode-favorites", // Favorites
+        "alefragnani.project-manager", // Project Manager
+        // ==============================================================================================
+        // Markdown
+        // ==============================================================================================
+        "yzhang.markdown-all-in-one", // Markdown All in One
+        "shd101wyy.markdown-preview-enhanced", // Markdown Preview Enhanced
+        // ==============================================================================================
+        // C/C++
+        // ==============================================================================================
+        // Required
+        "ms-vscode.cpptools", // C/C++
+        // CMake
+        "twxs.cmake", // CMake
+        "ms-vscode.cmake-tools", // CMake Tools
+        // ==============================================================================================
+        // Python
+        // ==============================================================================================
+        // Required
+        "ms-python.python", // Python
+        "ms-python.vscode-pylance", // Pylance
+        "ms-python.debugpy", // Python Debug
+        // Jupyter Notebook
+        "ms-toolsai.jupyter", // Jupyter
+        // IntelliSense and Snippets
+        "njpwerner.autodocstring", // Python autoDocstring
+        // Formatters and Linters
+        "ms-python.isort", // Python isort
+        "charliermarsh.ruff", // Python Ruff
+        "ms-python.autopep8", // Python Autopep8
+        // Flask Jinja
+        "wholroyd.jinja", // Jinja
+        // ==============================================================================================
+        // Web
+        // ==============================================================================================
+        // Display
+        "formulahendry.auto-rename-tag", // Auto Rename Tag
+        "vincaslt.highlight-matching-tag", // Highlight Matching Tag
+        "wix.vscode-import-cost", // Import Cost
+        // IntelliSense and Snippets
+        "zignd.html-css-class-completion", // IntelliSense for CSS class names in HTML
+        "xabikos.javascriptsnippets", // JavaScript (ES6) code snippets
+        // Bootstrap 5
+        "anbuselvanrocky.bootstrap5-vscode", // Bootstrap 5 Quirks snippets
+        // Formatted and Linter
+        "esbenp.prettier-vscode", // Prettier
+        "dbaeumer.vscode-eslint", // ESLint
+        // Vue
+        "octref.vetur", // Vetur
+        "vue.volar", // Vue - Official
+        // SASS/SCSS
+        "syler.sass-indented", // Sass (.sass only)
+        "glenn2223.live-sass", // Live Sass Compiler
+        "sibiraj-s.vscode-scss-formatter", // SCSS Formatter
+        "mrmlnc.vscode-scss", // SCSS IntelliSense
+        // Nginx
+        "william-voyek.vscode-nginx", // Nginx Configuration
+        "ahmadalli.vscode-nginx-conf", // NGINX Configuration Language Support
+        // Tools
+        "ritwickdey.liveserver", // Live Server
+        "jakewilson.vscode-cdnjs", // cdnjs
+        "pranaygp.vscode-css-peek", // CSS Peek
+        "kevinyang.ctlorem", // Chinese Lorem
+        // ==============================================================================================
+        // PHP
+        // ==============================================================================================
+        // PHP
+        "devsense.phptools-vscode", // PHP
+        "xdebug.php-debug", // PHP Debug
+        "neilbrayfield.php-docblocker", // PHP DocBlocker
+        "bmewburn.vscode-intelephense-client", // PHP Intelephense
+        "devsense.profiler-php-vscode", // PHP Profiler
+        "recca0120.vscode-phpunit", // PHPUnit
+        "devsense.composer-php-vscode", // Composer
+        "rifi2k.format-html-in-php", // Format HTML in PHP
+        "devsense.intelli-php-vscode", // Intelli-PHP - AI Autocomplete for PHP
+        // Laravel
+        "ryannaddy.laravel-artisan", // Laravel Artisan
+        "onecentlin.laravel-blade", // Laravel Blade Snippets
+        "onecentlin.laravel5-snippets", // Laravel 5 Snippets
+        // ==============================================================================================
+        // Matlab
+        // ==============================================================================================
+        "gimly81.matlab", // Matlab Unofficial
+        "affenwiesel.matlab-formatter", // Matlab Formatter
+        // ==============================================================================================
+        // Database
+        // ==============================================================================================
+        "cweijan.dbclient-jdbc", // Database Client JDBC
+        "cweijan.vscode-mysql-client2", // MySQL Client
+        "adpyke.vscode-sql-formatter", // SQL Formatter
+        // ==============================================================================================
+        // XML/RDF/OWL
+        // ==============================================================================================
+        // XML/RDF/OWL
+        "redhat.vscode-xml", // XML
+        "rdfox.rdfox-rdf", // RDFox Syntax Highlighting
+        "stardog-union.stardog-rdf-grammars", // Stardog RDF Grammars
+        "stardog-union.vscode-langserver-sparql" // Stardog SPARQL Language Server
+    ]
+}
