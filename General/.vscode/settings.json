@@ -8,7 +8,10 @@
     "files.associations": { // 檔案關聯設定 (將檔案關聯到特定語言)
         "*.embeddedhtml": "html", // Embedded HTML
         "*.json": "jsonc", // JSON with comments
-        "*.jsx": "javascript" // React JSX
+        "*.jsx": "javascript", // React JSX
+        "*.easylanguage": "easylanguage", // EasyLanguage mode for .easylanguage files
+        "*.el": "easylanguage", // EasyLanguage mode for .el files
+        "*.elf": "easylanguage" // EasyLanguage mode for .elf files
     },
     "workbench.startupEditor": "none", // 關閉啟動時的歡迎頁面
     "extensions.ignoreRecommendations": false, // 延伸套件的通知是否不再顯示
@@ -280,5 +283,12 @@
     // ========================================================================================================
     // PHP 設定
     // ========================================================================================================
-    "php.validate.executablePath": "C:/xampp/php/php.exe" // php 執行擋路徑
+    "php.validate.executablePath": "C:/xampp/php/php.exe", // php 執行擋路徑
+    // ========================================================================================================
+    // EasyLanguage 設定
+    // ========================================================================================================
+    "[easylanguage]": {
+        "editor.defaultFormatter": "RiderTradingTools.easylanguage" // 使用 EasyLanguage 套件格式化
+    },
+    // ========================================================================================================
 }

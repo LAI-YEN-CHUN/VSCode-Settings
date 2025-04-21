@@ -140,6 +140,10 @@
         "redhat.vscode-xml", // XML
         "rdfox.rdfox-rdf", // RDFox Syntax Highlighting
         "stardog-union.stardog-rdf-grammars", // Stardog RDF Grammars
-        "stardog-union.vscode-langserver-sparql" // Stardog SPARQL Language Server
+        "stardog-union.vscode-langserver-sparql", // Stardog SPARQL Language Server
+        // ==============================================================================================
+        // EasyLanguage
+        // ==============================================================================================
+        "RiderTradingTools.easylanguage", // EasyLanguage Support
     ]
 }
