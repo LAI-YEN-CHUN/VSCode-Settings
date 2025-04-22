@@ -5,6 +5,7 @@
         // ==============================================================================================
         // Display
         "pkief.material-icon-theme", // Material Icon Theme
+        "shalldie.background", // Background
         "ms-ceintl.vscode-language-pack-zh-hant", // Chinese (Traditional) Language
         "streetsidesoftware.code-spell-checker", // Code Spell Checker
         "oderwat.indent-rainbow", // Indent Rainbow
