@@ -27,6 +27,8 @@
         "github.copilot", // GitHub Copilot
         "github.copilot-chat", // GitHub Copilot Chat
         "github.vscode-github-actions", // GitHub Actions
+        "ms-vscode.vscode-speech", // VS Code Speech
+        "ms-vscode.vscode-speech-language-pack-zh-tw", // Chinese (Traditional, Taiwan) language support for VS Code Speech
         // Remote
         "ms-vscode-remote.vscode-remote-extensionpack", // Remote Development
         "ms-vscode.remote-explorer", // Remote Explorer

@@ -104,7 +104,7 @@
         "zh-TW"
     ], // 設置 google 翻譯的語言 快捷鍵 `Ctrl+Shift+T`
     // ========================================================================================================
-    // codesnap 設定
+    // Codesnap 設定
     // ========================================================================================================
     "codesnap.backgroundColor": "transparent", // background-color 背景色彩
     // "codesnap.boxShadow": "0px 0px 15px rgba(0, 0, 0, 0.55)", //  box-shadow 色彩 (白色 Theme)
@@ -130,10 +130,11 @@
     "vscode-pets.theme": "beach", // 主題 (none, forest, castle, beach, winter)
     "vscode-pets.throwBallWithMouse": true, // 是否使用滑鼠丟球
     // ========================================================================================================
-    // terminal 設定
+    // Terminal 設定
     // ========================================================================================================
     "terminal.integrated.defaultProfile.windows": "PowerShell", // 預設終端機
     "terminal.integrated.fontFamily": "'FiraCode Nerd Font'", // 在終端機中使用的字體 (使用 Nerd 字體，避免 Oh My Posh Icon 顯示亂碼)
+    "terminal.integrated.scrollback": 10000, // 終端機的滾動緩衝區大小
     //   "terminal.integrated.cursorBlinking": true, // 終端目前位置閃爍
     // ========================================================================================================
     // GitHub Copilot 設定
@@ -157,14 +158,20 @@
     "github.copilot.chat.useProjectTemplates": true, // 使用 /new 時，是否使用專案模板
     "github.copilot.chat.scopeSelection": true, // 如果使用者使用 /explain 並且使用中編輯器沒有選取，是否提示使用者選取特定符號範圍
     "github.copilot.chat.agent.thinkingTool": true, // 是否啟用思考工具
-    "github.copilot.nextEditSuggestions.enabled": false, // 是否啟用下一個編輯建議 (NES) 功能，NES 可以根據最近的變更建議下一個編輯 (https://aka.ms/vscode-nes)
+    "github.copilot.nextEditSuggestions.enabled": true, // 是否啟用下一個編輯建議 (NES) 功能，NES 可以根據最近的變更建議下一個編輯 (https://aka.ms/vscode-nes)
     "chat.detectParticipant.enabled": false, // 是否啟用自動檢測參與者 (true 似乎經常找錯聊天參與者)
+    // GitHub Copilot Chat - 偵錯相關設定
+    "github.copilot.chat.startDebugging.enabled": true, // 在 Chat View 啟用實驗性的 /startDebugging 命令，幫你快速在 VS Code 初始化偵錯相關設定
+    "github.copilot.chat.reviewSelection.enabled": true, // 是否啟用目前選取項目的程式碼檢閱
+    "github.copilot.chat.copilotDebugCommand.enabled": true, // 是否啟用 Copilot Debug 命令
+    "github.copilot.chat.edits.temporalContext.enabled": false, // 是否在編輯建議中包含最近檢視及編輯過的檔案
+    // GitHub Copilot Chat - 測試相關設定
+    "github.copilot.chat.setupTests.enabled": true, // 在 Chat View 啟用實驗性的 /setupTests 命令，幫你快速在 VS Code 初始化測試相關設定
+    "github.copilot.chat.generateTests.codeLens": true, // 是否在編輯器中啟用生成測試的 CodeLens
     // GitHub Copilot Chat (Inline Chat) 設定
     "inlineChat.holdToSpeech": true, // 啟用按住不放 Ctrl+U 或 Ctrl+I 開始語音對話
     "inlineChat.finishOnType": false, // 在編輯器中輸入時，自動結束 Inline Chat 對話 (true 會自動結束)
     "github.copilot.chat.editor.temporalContext.enabled": true, // 是否要在 Copilot 要求中包含最近檢視及編輯過的檔案
-    "github.copilot.chat.startDebugging.enabled": true, // 在 Chat View 啟用實驗性的 /startDebugging 命令，幫你快速在 VS Code 初始化偵錯相關設定
-    "github.copilot.chat.setupTests.enabled": true, // 在 Chat View 啟用實驗性的 /setupTests 命令，幫你快速在 VS Code 初始化測試相關設定
     // GitHub Copilot Edit 設定
     "github.copilot.chat.edits.suggestRelatedFilesForTests": true, // 是否在編輯建議中建議相關的測試檔案
     "github.copilot.chat.edits.suggestRelatedFilesFromGitHistory": true, // 是否在編輯建議中建議相關的 Git 歷史檔案
@@ -172,11 +179,49 @@
     "github.copilot.chat.newWorkspaceCreation.enabled": true, // 是否啟用 @workspce /new 命令，使用相關的 GitHub 專案作為專案範本
     "chat.editing.confirmEditRequestRemoval": true, // 是否在編輯建議中確認移除編輯請求
     "chat.agent.enabled": true, // 是否啟用 Copilot Agent Mode
-    "chat.agent.maxRequests": 50, // Agent Mode 最大編輯請求數量 (default: 15)
+    "chat.agent.maxRequests": 100, // Agent Mode 最大編輯請求數量 (default: 15)
     // GitHub Copilot Accessibility (Voice) 設定
     "accessibility.voice.speechLanguage": "zh-TW", // 設定語音輸入的語言為繁體中文
-    "accessibility.voice.autoSynthesize": false, // 是否在 Copilot 回應時自動合成語音
+    "accessibility.voice.autoSynthesize": "off", // 是否在 Copilot 回應時自動合成語音
     "accessibility.voice.speechTimeout": 1500, // 設定語音輸入後可停頓的時間
+    // ========================================================================================================
+    // MCP (Model Context Protocol) 設定
+    // ========================================================================================================
+    "chat.mcp.enabled": true, // 啟用 MCP (Model Context Protocol)
+    "chat.mcp.discovery.enabled": true, // 啟用 MCP 服務發現
+    "mcp": {
+        "inputs": [],
+        "servers": {
+            // https://github.com/upstash/context7
+            "context7": {
+                "type": "http",
+                "url": "https://mcp.context7.com/mcp"
+            },
+            // https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking
+            "sequential-thinking": {
+                "command": "npx",
+                "args": [
+                    "-y",
+                    "@modelcontextprotocol/server-sequential-thinking"
+                ]
+            },
+            // https://github.com/optuna/optuna-mcp
+            "Optuna": {
+                "command": "docker",
+                "args": [
+                    "run",
+                    "-i",
+                    "--rm",
+                    "--net=host",
+                    "-v",
+                    "D:/windows/tools/MCP/Optuna:/app/workspace",
+                    "optuna/optuna-mcp:latest",
+                    "--storage",
+                    "sqlite:////app/workspace/optuna.db"
+                ]
+            },
+        }
+    },
     // ========================================================================================================
     // Code Runner 設定
     // ========================================================================================================
