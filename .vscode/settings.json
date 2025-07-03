@@ -163,12 +163,19 @@
     "github.copilot.chat.agent.thinkingTool": true, // 是否啟用思考工具
     "github.copilot.nextEditSuggestions.enabled": true, // 是否啟用下一個編輯建議 (NES) 功能，NES 可以根據最近的變更建議下一個編輯 (https://aka.ms/vscode-nes)
     "chat.detectParticipant.enabled": false, // 是否啟用自動檢測參與者 (true 似乎經常找錯聊天參與者)
-    // GitHub Copilot Chat - 自訂提示設定
+    // GitHub Copilot Chat - 自訂指令設定
     "github.copilot.chat.codeGeneration.useInstructionFiles": true, // 控制來自 '.github/copilot-instructions.md' 的程式碼指示是否要新增到 Copilot 要求
+    "chat.instructionsFilesLocations": {
+        ".github/instructions": true, // 指令檔案 (*.instructions.md) 的位置設定
+    },
     // GitHub Copilot Chat - 可重複使用的提示詞設定
     "chat.promptFiles": true, // 是否在 [聊天]、[編輯] 及 [即時聊天] 工作階段中啟用可重複使用的提示 (*.prompt.md`) 和指令檔案
     "chat.promptFilesLocations": { // 提示檔案 (*.prompt.md) 的位置設定
         ".github/prompts": true
+    },
+    // GitHub Copilot Chat - 聊天模式設定
+    "chat.modeFilesLocations": {
+        ".github/chatmodes": true // 聊天模式檔案 (*.chatmode.md) 的位置設定
     },
     // GitHub Copilot Chat - 偵錯相關設定
     "github.copilot.chat.startDebugging.enabled": true, // 在 Chat View 啟用實驗性的 /startDebugging 命令，幫你快速在 VS Code 初始化偵錯相關設定
