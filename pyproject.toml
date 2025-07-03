@@ -1,0 +1,29 @@
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"] # E: pycodestyle, F: pyflakes, I: isort
+ignore = [
+    "E501", # E501: line too long
+    "F841", # F841: local variable is assigned to but never used
+]
+
+[tool.ruff.format]
+quote-style = "single"            # single or double
+skip-magic-trailing-comma = false
+
+
+# Enable auto-formatting of code examples in docstrings. Markdown,
+# reStructuredText code/literal blocks and doctests are all supported.
+#
+# This is currently disabled by default, but it is planned for this
+# to be opt-out in the future.
+docstring-code-format = false
+
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+#
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = "dynamic"

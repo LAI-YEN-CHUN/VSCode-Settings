@@ -1,5 +1,9 @@
 {
     // ========================================================================================================
+    // 僅適用於 User Settings 的設定 (不會在 Workspace Settings 中生效)
+    // ========================================================================================================
+    "chat.editing.confirmEditRequestRemoval": true, // 是否在編輯建議中確認移除編輯請求
+    // ========================================================================================================
     // VSCode 設定
     // ========================================================================================================
     "files.exclude": { // 隱藏檔案或資料夾 (false 時，顯示檔案或資料夾)
@@ -30,7 +34,6 @@
     "editor.detectIndentation": false, // 根據檔案內容，控制當檔案開啟時，是否自動偵測 tabSize 和 insertSpaces
     "editor.scrollBeyondLastLine": false, // false 時將防止編輯器(頂端)滾動到最後一行
     "editor.padding.bottom": 300, // 控制編輯器底部邊緣和最後一行之間的空間量，以像素為單位。須將 editor.scrollBeyondLastLine 設為 false
-    //   "editor.rulers": [80, 120], // 在 80~120 字的地方畫線提醒字數不要太多
     "editor.lineHeight": 19, // 行高
     "editor.fontSize": 14, // 字體大小
     "editor.cursorWidth": 2, // 游標粗細
@@ -134,7 +137,7 @@
     // ========================================================================================================
     "terminal.integrated.defaultProfile.windows": "PowerShell", // 預設終端機
     "terminal.integrated.fontFamily": "'FiraCode Nerd Font'", // 在終端機中使用的字體 (使用 Nerd 字體，避免 Oh My Posh Icon 顯示亂碼)
-    "terminal.integrated.scrollback": 10000, // 終端機的滾動緩衝區大小
+    "terminal.integrated.scrollback": 10000, // 終端機的滾動緩衝區大小 (Agent Mode 建議調高預設 Terminal 的捲軸行數)
     //   "terminal.integrated.cursorBlinking": true, // 終端目前位置閃爍
     // ========================================================================================================
     // GitHub Copilot 設定
@@ -153,13 +156,20 @@
     "workbench.commandPalette.experimental.askChatLocation": "chatView", // Ask Chat Location (chatView 會留下歷史記錄)
     "github.copilot.chat.search.semanticTextResults": true, // 在搜尋檢視中啟用語意搜尋結果
     // GitHub Copilot Chat 設定
-    "github.copilot.chat.followUps": "never", // 是否要在聊天中建議跟進訊息，提供你下一個提示的建議
+    "github.copilot.chat.followUps": "always", // 是否要在聊天中建議跟進訊息，提供你下一個提示的建議
     "github.copilot.chat.localeOverride": "zh-TW", // 回應語言設定
     "github.copilot.chat.useProjectTemplates": true, // 使用 /new 時，是否使用專案模板
     "github.copilot.chat.scopeSelection": true, // 如果使用者使用 /explain 並且使用中編輯器沒有選取，是否提示使用者選取特定符號範圍
     "github.copilot.chat.agent.thinkingTool": true, // 是否啟用思考工具
     "github.copilot.nextEditSuggestions.enabled": true, // 是否啟用下一個編輯建議 (NES) 功能，NES 可以根據最近的變更建議下一個編輯 (https://aka.ms/vscode-nes)
     "chat.detectParticipant.enabled": false, // 是否啟用自動檢測參與者 (true 似乎經常找錯聊天參與者)
+    // GitHub Copilot Chat - 自訂提示設定
+    "github.copilot.chat.codeGeneration.useInstructionFiles": true, // 控制來自 '.github/copilot-instructions.md' 的程式碼指示是否要新增到 Copilot 要求
+    // GitHub Copilot Chat - 可重複使用的提示詞設定
+    "chat.promptFiles": true, // 是否在 [聊天]、[編輯] 及 [即時聊天] 工作階段中啟用可重複使用的提示 (*.prompt.md`) 和指令檔案
+    "chat.promptFilesLocations": { // 提示檔案 (*.prompt.md) 的位置設定
+        ".github/prompts": true
+    },
     // GitHub Copilot Chat - 偵錯相關設定
     "github.copilot.chat.startDebugging.enabled": true, // 在 Chat View 啟用實驗性的 /startDebugging 命令，幫你快速在 VS Code 初始化偵錯相關設定
     "github.copilot.chat.reviewSelection.enabled": true, // 是否啟用目前選取項目的程式碼檢閱
@@ -177,9 +187,8 @@
     "github.copilot.chat.edits.suggestRelatedFilesFromGitHistory": true, // 是否在編輯建議中建議相關的 Git 歷史檔案
     "github.copilot.chat.codesearch.enabled": true, // 是否啟用 #codebase 變數的代理人原始碼搜尋功能，嘗試多種不同的搜尋條件
     "github.copilot.chat.newWorkspaceCreation.enabled": true, // 是否啟用 @workspce /new 命令，使用相關的 GitHub 專案作為專案範本
-    "chat.editing.confirmEditRequestRemoval": true, // 是否在編輯建議中確認移除編輯請求
     "chat.agent.enabled": true, // 是否啟用 Copilot Agent Mode
-    "chat.agent.maxRequests": 100, // Agent Mode 最大編輯請求數量 (default: 15)
+    "chat.agent.maxRequests": 50, // Agent Mode 最大編輯請求數量 (default: 15)
     // GitHub Copilot Accessibility (Voice) 設定
     "accessibility.voice.speechLanguage": "zh-TW", // 設定語音輸入的語言為繁體中文
     "accessibility.voice.autoSynthesize": "off", // 是否在 Copilot 回應時自動合成語音
@@ -188,7 +197,7 @@
     // MCP (Model Context Protocol) 設定
     // ========================================================================================================
     "chat.mcp.enabled": true, // 啟用 MCP (Model Context Protocol)
-    "chat.mcp.discovery.enabled": true, // 啟用 MCP 服務發現
+    "chat.mcp.discovery.enabled": false, // 是否啟用 MCP 服務發現功能 (true 會自動搜尋 MCP 服務)
     "mcp": {
         "inputs": [],
         "servers": {
@@ -241,7 +250,7 @@
     "C_Cpp.intelliSenseEngine": "default", // 可以為 default 或 Tag Parser，後者較老，功能較簡單。具體差別參考 cpptools 擴展文檔
     "C_Cpp.clang_format_style": "{BasedOnStyle: Google, IndentWidth: 4, IndentCaseLabels: false, TabWidth: 4, UseTab: ForIndentation, ColumnLimit: 0}", // Google排版風格
     // "C_Cpp.clang_format_fallbackStyle": "Visual Studio", // 預設排版風格
-    // "C_Cpp.errorSquiggles": "Disabled", // 若有 clan g的 lint，可以關掉
+    // "C_Cpp.errorSquiggles": "Disabled", // 若有 clang 的 lint，可以關掉
     // "C_Cpp.autocomplete": "Disabled", // 若有 clang 的補全，可以關掉
     // ========================================================================================================
     // Python formatter and linter 設定

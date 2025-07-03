@@ -1,0 +1,14 @@
+# Example Docker Compose file for a main service with NVIDIA runtime
+services:
+  main-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: main-service:latest
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    volumes:
+      - .:/workspace
+    tty: true
