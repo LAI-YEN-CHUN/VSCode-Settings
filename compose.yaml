@@ -1,0 +1,20 @@
+# Build:
+# docker compose build
+# Run:
+# docker compose up -d
+services:
+  main-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: main-service:latest
+    volumes:
+      - .:/workspace
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    tty: true
