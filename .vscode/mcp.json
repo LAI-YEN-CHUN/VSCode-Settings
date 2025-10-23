@@ -1,0 +1,32 @@
+{
+    "servers": {
+        "context7": {
+            "type": "http",
+            "url": "https://mcp.context7.com/mcp"
+        },
+        "sequential-thinking": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-sequential-thinking"
+            ],
+            "type": "stdio"
+        },
+        "Optuna": {
+            "command": "docker",
+            "args": [
+                "run",
+                "-i",
+                "--rm",
+                "--net=host",
+                "-v",
+                "D:/windows/tools/MCP/Optuna:/app/workspace",
+                "optuna/optuna-mcp:latest",
+                "--storage",
+                "sqlite:////app/workspace/optuna.db"
+            ],
+            "type": "stdio"
+        }
+    },
+    "inputs": []
+}
