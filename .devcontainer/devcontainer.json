@@ -2,7 +2,7 @@
     "name": "My Projects",
     // Update the 'dockerComposeFile' list if you have more compose files or use different names.
     "dockerComposeFile": [
-        "../docker-compose.yml", // Path to your docker-compose file
+        "../compose.yaml", // Path to your docker-compose file
     ],
     // The 'service' property is the name of the service for the container that VS Code should
     // use. Update this value and .devcontainer/docker-compose.yml to the real service name.
@@ -42,8 +42,8 @@
             ]
         }
     },
-    // Uncomment the next line if you want to keep your containers running after VS Code shuts down.
-    // "shutdownAction": "none",
+    // The action to perform when shutting down: stop the Docker Compose services without removing containers or volumes
+    "shutdownAction": "stopCompose",
     // Uncomment the next line to use 'postCreateCommand' to run commands after the container is created.
     // "postCreateCommand": "uname -a",
     // Comment out to connect as root instead. To add a non-root user, see: https://aka.ms/vscode-remote/containers/non-root.
