@@ -77,7 +77,7 @@
     "vscode-pets.petType": "cat", // 寵物類型
     "vscode-pets.petColor": "orange", // 寵物顏色
     "vscode-pets.position": "explorer", // 寵物位置 (explorer, panel)
-    "vscode-pets.theme": "beach", // 主題 (none, forest, castle, beach, winter)
+    "vscode-pets.theme": "winter", // 主題 (none, forest, castle, beach, winter, autumn)
     "vscode-pets.throwBallWithMouse": true, // 是否使用滑鼠丟球
     // ========================================================================================================
     // VSCode Files 設定
@@ -107,7 +107,8 @@
     // ========================================================================================================
     // Terminal 設定
     // ========================================================================================================
-    "terminal.integrated.defaultProfile.windows": "PowerShell", // 預設終端機
+    "terminal.integrated.defaultProfile.windows": "PowerShell", // Windows 預設終端機
+    "terminal.integrated.defaultProfile.linux": "bash", // Linux 預設終端機
     "terminal.integrated.fontFamily": "'FiraCode Nerd Font'", // 在終端機中使用的字體 (使用 Nerd 字體，避免 Oh My Posh Icon 顯示亂碼)
     "terminal.integrated.scrollback": 10000, // 終端機的滾動緩衝區大小 (Agent Mode 建議調高預設 Terminal 的捲軸行數)
     // ========================================================================================================
@@ -149,7 +150,7 @@
         "editor.defaultFormatter": "charliermarsh.ruff" // 使用 ruff 作為 Formatter (須安裝 charliermarsh.ruff 套件)
         // "editor.defaultFormatter": "ms-python.autopep8" // 使用 autopep8 (須安裝 ms-python.autopep8 套件)
     },
-    "ruff.organizeImports": false, // 是否使用 ruff 在格式化時調整 import 的順序 (例如設為 false 並搭配 ms-python.isort 套件使用)
+    // "ruff.organizeImports": false, // 是否使用 ruff 在格式化時調整 import 的順序 (例如設為 false 並搭配 ms-python.isort 套件使用)
     // Jupyter Notebook 設定
     "notebook.formatOnSave.enabled": true, // 保存時自動格式化
     "notebook.codeActionsOnSave": { // 保存時觸發的動作

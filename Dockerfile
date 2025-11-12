@@ -1,15 +1,27 @@
-# Example Dockerfile for a PyTorch development environment
-FROM nvcr.io/nvidia/pytorch:24.12-py3
+# Example Dockerfile for a CUDA development environment with UV and PyTorch
+FROM nvcr.io/nvidia/cuda:12.9.1-cudnn-runtime-ubuntu24.04
+
+# Install Git if not already installed
+RUN if ! command -v git >/dev/null 2>&1; then \
+    echo "Git not found, installing..."; \
+    apt-get update && \
+    apt-get install -y --no-install-recommends git && \
+    rm -rf /var/lib/apt/lists/*; \
+    fi
 
 # Set the working directory
 WORKDIR /workspace
 
-# Copy the requirements file
-COPY requirements.txt .
+# Install UV and set up Python virtual environment
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+RUN uv venv /opt/.cuquantum-venv --python 3.12
+ENV PATH="/opt/.cuquantum-venv/bin:$PATH"
 
-# Upgrade pip, install Jupyter
-RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir notebook ipywidgets pylatexenc
+# Install Jupyter Notebook, and PyTorch with CUDA support
+RUN uv pip install --no-cache-dir --upgrade pip && \
+    uv pip install --no-cache-dir notebook ipywidgets pylatexenc && \
+    uv pip install --no-cache-dir torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu129
 
 # Install additional Python dependencies listed in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+COPY requirements.txt .
+RUN uv pip install --no-cache-dir -r requirements.txt
