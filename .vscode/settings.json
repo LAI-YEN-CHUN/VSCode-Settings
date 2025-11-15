@@ -24,6 +24,8 @@
     "editor.cursorWidth": 2, // 游標粗細
     "editor.detectIndentation": false, // 根據檔案內容，控制當檔案開啟時，是否自動偵測 tabSize 和 insertSpaces
     "editor.tabSize": 4, // Tab 等校之空格數量 (當 editor.detectIndentation 已開啟時，會根據檔案內容覆寫此設定)
+    // Jupyter Notebook UI/UX 設定
+    "notebook.lineNumbers": "on", // 在 Jupyter Notebook 中顯示行號
     // VSCode Color Theme 設定
     "window.autoDetectColorScheme": false, // 是否自動偵測作業系統的深色/淺色主題
     "workbench.colorTheme": "Default Dark Modern", // 預設深色主題

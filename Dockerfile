@@ -14,8 +14,8 @@ WORKDIR /workspace
 
 # Install UV and set up Python virtual environment
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
-RUN uv venv /opt/.cuquantum-venv --python 3.12
-ENV PATH="/opt/.cuquantum-venv/bin:$PATH"
+RUN uv venv /opt/.venv --python 3.12
+ENV PATH="/opt/.venv/bin:$PATH"
 
 # Install Jupyter Notebook, and PyTorch with CUDA support
 RUN uv pip install --no-cache-dir --upgrade pip && \
