@@ -9,19 +9,17 @@ RUN if ! command -v git >/dev/null 2>&1; then \
     rm -rf /var/lib/apt/lists/*; \
     fi
 
+# Install UV and set up Python virtual environment
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+
+# UV venv directory stored outside the project
+ENV UV_PROJECT_ENVIRONMENT=/opt/.venv
+ENV PATH="/opt/.venv/bin:$PATH"
+
 # Set the working directory
 WORKDIR /workspace
 
-# Install UV and set up Python virtual environment
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
-RUN uv venv /opt/.venv --python 3.12
-ENV PATH="/opt/.venv/bin:$PATH"
-
-# Install Jupyter Notebook, and PyTorch with CUDA support
-RUN uv pip install --no-cache-dir --upgrade pip && \
-    uv pip install --no-cache-dir notebook ipywidgets pylatexenc && \
-    uv pip install --no-cache-dir torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu129
-
-# Install additional Python dependencies listed in requirements.txt
-COPY requirements.txt .
-RUN uv pip install --no-cache-dir -r requirements.txt
+# Install dependencies using UV
+COPY pyproject.toml .
+RUN uv lock && \
+    uv sync --frozen

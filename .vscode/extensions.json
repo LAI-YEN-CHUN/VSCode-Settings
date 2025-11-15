@@ -137,8 +137,10 @@
         "cweijan.vscode-mysql-client2", // MySQL Client
         "adpyke.vscode-sql-formatter", // SQL Formatter
         // ==============================================================================================
-        // XML/RDF/OWL
+        // TOML/XML/RDF/OWL
         // ==============================================================================================
+        // TOML
+        "tamasfe.even-better-toml", // Even Better TOML
         // XML/RDF/OWL
         "redhat.vscode-xml", // XML
         "rdfox.rdfox-rdf", // RDFox Syntax Highlighting

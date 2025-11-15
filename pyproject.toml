@@ -1,0 +1,41 @@
+[project]
+name = "workspace"
+version = "0.1.0"
+requires-python = "==3.12.*"
+dependencies = [
+    # PyTorch
+    "torch==2.8.0",
+    "torchvision==0.23.0",
+    "torchaudio==2.8.0",
+    "torchsummary",
+    # Machine Learning / Deep Learning
+    "skorch==1.2.0", # # Support of PyTorch 2.5.1, 2.6.0, 2.7.1, 2.8.0 versions.
+    "scikit-learn",
+    "transformers",
+    "kagglehub",
+    # Jupyter + Notebook
+    "notebook",
+    "ipywidgets",
+    "pylatexenc",
+    # Others
+    "tqdm",
+    "seaborn",
+    "openpyxl",
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu129", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchvision = [
+    { index = "pytorch-cu129", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+torchaudio = [
+    { index = "pytorch-cu129", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+]
+
+
+[[tool.uv.index]]
+name = "pytorch-cu129"
+url = "https://download.pytorch.org/whl/cu129"
+explicit = true

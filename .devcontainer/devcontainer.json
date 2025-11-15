@@ -18,27 +18,36 @@
             "settings": {},
             // Add the IDs of extensions you want installed when the container is created.
             "extensions": [
+                // Display and visualization extensions
+                "streetsidesoftware.code-spell-checker",
+                "oderwat.indent-rainbow",
+                "christian-kohler.path-intellisense",
+                "kisstkondoros.vscode-gutter-preview",
+                "GrapeCity.gc-excelviewer",
+                "analytic-signal.preview-pdf",
+                "mechatroner.rainbow-csv",
+                "wayou.vscode-todo-highlight",
+                // Code runner extension
+                "formulahendry.code-runner",
+                // Translation and language support extensions
+                "benshabatnoam.google-translate-ext",
+                // Git and GitHub extensions
+                "mhutchie.git-graph",
+                "eamodio.gitlens",
+                "github.vscode-github-actions",
+                // Markdown extensions
+                "yzhang.markdown-all-in-one",
+                "shd101wyy.markdown-preview-enhanced",
+                // Docker extensions
+                "docker.docker",
+                "ms-azuretools.vscode-docker",
                 // Python and Jupyter extensions
                 "ms-python.python",
                 "ms-python.autopep8",
                 "ms-toolsai.jupyter",
                 "charliermarsh.ruff",
-                "formulahendry.code-runner",
-                // Git and version control extensions
-                "mhutchie.git-graph",
-                "eamodio.gitlens",
-                // Markdown and documentation extensions
-                "yzhang.markdown-all-in-one",
-                "shd101wyy.markdown-preview-enhanced",
-                // Display and visualization extensions
-                "streetsidesoftware.code-spell-checker",
-                "oderwat.indent-rainbow",
-                "christian-kohler.path-intellisense",
-                "GrapeCity.gc-excelviewer",
-                "analytic-signal.preview-pdf",
-                "mechatroner.rainbow-csv",
-                // Translation and language support extensions
-                "benshabatnoam.google-translate-ext",
+                // TOML file extensions
+                "tamasfe.even-better-toml",
             ]
         }
     },
