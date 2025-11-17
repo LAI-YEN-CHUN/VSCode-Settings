@@ -1,5 +1,5 @@
 # Example Dockerfile for a CUDA development environment with UV and PyTorch
-FROM nvcr.io/nvidia/cuda:12.9.1-cudnn-runtime-ubuntu24.04
+FROM nvcr.io/nvidia/cuda:12.9.1-base-ubuntu24.04
 
 # Install Git if not already installed
 RUN if ! command -v git >/dev/null 2>&1; then \
@@ -21,5 +21,4 @@ WORKDIR /workspace
 
 # Install dependencies using UV
 COPY pyproject.toml .
-RUN uv lock && \
-    uv sync --frozen
+RUN uv sync
