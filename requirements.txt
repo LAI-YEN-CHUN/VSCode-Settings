@@ -1,7 +1,0 @@
-scikit-learn
-seaborn
-tqdm
-torchsummary
-kagglehub
-transformers
-skorch==1.2.0 # Support of PyTorch 2.5.1, 2.6.0, 2.7.1, 2.8.0 versions.

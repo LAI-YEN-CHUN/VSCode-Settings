@@ -1,0 +1,30 @@
+name: Docker Build and Compose Validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate_docker_files:
+    name: Validate Docker Files
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Dockerfile Validation
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Validate Dockerfile Build Config
+        uses: docker/build-push-action@v6
+        with:
+          call: check
+
+      # Docker Compose Validation
+      - name: Validate Docker Compose Structure
+        run: docker compose config
