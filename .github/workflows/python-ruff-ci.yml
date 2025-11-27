@@ -44,7 +44,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v7
         id: auto-commit-action # mandatory for the output to show up in ${{ steps }}
         with:
-          commit_message: "chore: auto-format with Ruff"
+          commit_message: "chore: auto-fixed by Ruff linter and formatter"
 
       - name: "Run if changes have been detected"
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
