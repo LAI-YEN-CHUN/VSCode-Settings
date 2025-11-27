@@ -2,15 +2,11 @@ name: Python Pyright Type Check CI
 
 on:
   push:
-    paths:
-      - "**/*.py"
-      - "**/*.pyi"
-      - "**/pyproject.toml"
+    paths: ["**/*.py", "**/*.pyi", "**/pyproject.toml"]
+    branches: [main]
   pull_request:
-    paths:
-      - "**/*.py"
-      - "**/*.pyi"
-      - "**/pyproject.toml"
+    paths: ["**/*.py", "**/*.pyi", "**/pyproject.toml"]
+    branches: [main]
   workflow_dispatch:
 
 jobs:

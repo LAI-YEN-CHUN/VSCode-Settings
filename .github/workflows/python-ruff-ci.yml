@@ -2,17 +2,11 @@ name: Python Ruff Lint and Format CI
 
 on:
   push:
-    paths:
-      - "**/*.py"
-      - "**/*.pyi"
-      - "**/*.ipynb"
-      - "**/pyproject.toml"
+    paths: ["**/*.py", "**/*.pyi", "**/*.ipynb", "**/pyproject.toml"]
+    branches: [main]
   pull_request:
-    paths:
-      - "**/*.py"
-      - "**/*.pyi"
-      - "**/*.ipynb"
-      - "**/pyproject.toml"
+    paths: ["**/*.py", "**/*.pyi", "**/*.ipynb", "**/pyproject.toml"]
+    branches: [main]
   workflow_dispatch:
 
 jobs:

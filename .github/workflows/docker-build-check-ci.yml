@@ -2,8 +2,10 @@ name: Docker Build and Compose Validation
 
 on:
   push:
+    paths: ["**/Dockerfile", "**/*compose.yml", "**/*compose.yaml"]
     branches: [main]
   pull_request:
+    paths: ["**/Dockerfile", "**/*compose.yml", "**/*compose.yaml"]
     branches: [main]
   workflow_dispatch:
 
