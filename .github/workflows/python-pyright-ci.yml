@@ -28,6 +28,9 @@ jobs:
       - name: Sync UV Dependencies
         run: uv sync
 
+      - name: Add Virtual Environment to PATH
+        run: echo "$PWD/.venv/bin" >> $GITHUB_PATH
+
       - name: Run Pyright Type Checker
         uses: jakebailey/pyright-action@v2
         with:
