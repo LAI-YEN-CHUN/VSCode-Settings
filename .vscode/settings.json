@@ -22,8 +22,7 @@
     "editor.lineHeight": 19, // 行高
     "editor.fontSize": 14, // 字體大小
     "editor.cursorWidth": 2, // 游標粗細
-    "editor.detectIndentation": false, // 根據檔案內容，控制當檔案開啟時，是否自動偵測 tabSize 和 insertSpaces
-    "editor.tabSize": 4, // Tab 等校之空格數量 (當 editor.detectIndentation 已開啟時，會根據檔案內容覆寫此設定)
+    "editor.detectIndentation": true, // 根據檔案內容，控制當檔案開啟時，是否自動偵測 tabSize 和 insertSpaces
     // Jupyter Notebook UI/UX 設定
     "notebook.lineNumbers": "on", // 在 Jupyter Notebook 中顯示行號
     // VSCode Color Theme 設定
@@ -138,25 +137,21 @@
     "C_Cpp.clang_format_sortIncludes": true, // 格式化時調整 include 的順序 (按字母排序)
     "C_Cpp.intelliSenseEngine": "default", // 可以為 default 或 Tag Parser，後者較老，功能較簡單。具體差別參考 cpptools 擴展文檔
     "C_Cpp.clang_format_style": "{BasedOnStyle: Google, IndentWidth: 4, IndentCaseLabels: false, TabWidth: 4, UseTab: ForIndentation, ColumnLimit: 0}", // Google 排版風格
-    // "C_Cpp.clang_format_fallbackStyle": "Visual Studio", // 預設排版風格
-    // "C_Cpp.errorSquiggles": "Disabled", // 若有 clang 的 lint，可以關掉
-    // "C_Cpp.autocomplete": "Disabled", // 若有 clang 的補全，可以關掉
     // Python 設定
     "[python]": {
         "editor.formatOnSave": true, // 保存時自動格式化
         "editor.codeActionsOnSave": { // 保存時觸發的動作
-            "source.fixAll": "explicit", // 修復所有問題 (須安裝 charliermarsh.ruff 套件)
-            "source.organizeImports": "explicit" // 格式化時調整 import 的順序 (須安裝 ms-python.isort 套件)
+            "source.fixAll": "explicit", // 修復所有問題
+            "source.organizeImports": "explicit" // 格式化時調整 import 的順序
         },
-        "editor.defaultFormatter": "charliermarsh.ruff" // 使用 ruff 作為 Formatter (須安裝 charliermarsh.ruff 套件)
-        // "editor.defaultFormatter": "ms-python.autopep8" // 使用 autopep8 (須安裝 ms-python.autopep8 套件)
+        "editor.defaultFormatter": "charliermarsh.ruff" // 使用 ruff 作為 Formatter
     },
-    "ruff.organizeImports": false, // 是否使用 ruff 在格式化時調整 import 的順序 (例如設為 false 並搭配 ms-python.isort 套件使用)
+    "ruff.organizeImports": true, // 是否使用 ruff 在格式化時調整 import 的順序，若要使用其他套件請將此設定設為 false
     // Jupyter Notebook 設定
     "notebook.formatOnSave.enabled": true, // 保存時自動格式化
     "notebook.codeActionsOnSave": { // 保存時觸發的動作
-        "notebook.source.fixAll": "explicit", // 修復所有問題 (須安裝 charliermarsh.ruff 套件)
-        "notebook.source.organizeImports": "explicit" // 格式化時調整 import 的順序 (須安裝 ms-python.isort 套件)
+        "notebook.source.fixAll": "explicit", // 修復所有問題
+        "notebook.source.organizeImports": "explicit" // 格式化時調整 import 的順序
     },
     // Javascript 設定
     "[javascript][javascriptreact][typescript][typescriptreact]": {

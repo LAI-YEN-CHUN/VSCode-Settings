@@ -15,7 +15,48 @@
         // Configure properties specific to VS Code.
         "vscode": {
             // Set *default* container specific settings.json values on container create.
-            "settings": {},
+            "settings": {
+                // File settings
+                "files.autoGuessEncoding": true, // Auto detect file encoding when opening a file
+                "files.trimTrailingWhitespace": true, // Remove trailing whitespace on save
+                "files.insertFinalNewline": false, // If true, insert a final newline at the end of the file on save
+                "files.associations": { // File associations
+                    "*.json": "jsonc", // JSON with comments
+                },
+                // Editor settings
+                "editor.formatOnSave": true, // Auto format on save
+                "editor.formatOnType": true, // Auto format when typing
+                // Terminal settings
+                "terminal.integrated.defaultProfile.linux": "bash", // Linux terminal profile
+                // JSON and JSONC settings
+                "[json][jsonc]": {
+                    "editor.defaultFormatter": "vscode.json-language-features" // Use built-in JSON formatter for JSON and JSONC files
+                },
+                // Python settings
+                "[python]": {
+                    "editor.formatOnSave": true, // Auto format on save
+                    "editor.codeActionsOnSave": {
+                        "source.fixAll": "explicit", // Fix all issues
+                        "source.organizeImports": "explicit" // Organize imports on format
+                    },
+                    "editor.defaultFormatter": "charliermarsh.ruff" // Use ruff as Formatter
+                },
+                "ruff.organizeImports": true, // Whether to use ruff to organize imports on format
+                // Jupyter Notebook settings
+                "notebook.formatOnSave.enabled": true, // Auto format on save
+                "notebook.codeActionsOnSave": { // Actions triggered on save
+                    "notebook.source.fixAll": "explicit", // Fix all issues
+                    "notebook.source.organizeImports": "explicit" // Organize imports on format
+                },
+                // Code Runner settings
+                "code-runner.runInTerminal": true, // Run code in integrated terminal instead of output window
+                "code-runner.saveFileBeforeRun": true, // Save file before running code
+                "code-runner.preserveFocus": true, // Preserve focus after running code
+                "code-runner.clearPreviousOutput": false, // Do not clear previous output before running code
+                "code-runner.executorMap": { // Set command line for code runner
+                    "python": "$pythonPath $fullFileName"
+                },
+            },
             // Add the IDs of extensions you want installed when the container is created.
             "extensions": [
                 // Display and visualization extensions
@@ -43,11 +84,13 @@
                 "ms-azuretools.vscode-docker",
                 // Python and Jupyter extensions
                 "ms-python.python",
-                "ms-python.autopep8",
                 "ms-toolsai.jupyter",
                 "charliermarsh.ruff",
-                // TOML file extensions
+                // Configuration file extensions
                 "tamasfe.even-better-toml",
+                "redhat.vscode-yaml",
+                "ms-azuretools.vscode-docker",
+                "docker.docker",
             ]
         }
     },

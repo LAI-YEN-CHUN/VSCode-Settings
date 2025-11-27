@@ -65,16 +65,10 @@
         // ==============================================================================================
         // Required
         "ms-python.python", // Python
-        "ms-python.vscode-pylance", // Pylance
-        "ms-python.debugpy", // Python Debug
         // Jupyter Notebook
         "ms-toolsai.jupyter", // Jupyter
-        // IntelliSense and Snippets
-        "njpwerner.autodocstring", // Python autoDocstring
         // Formatters and Linters
-        "ms-python.isort", // Python isort
         "charliermarsh.ruff", // Python Ruff
-        "ms-python.autopep8", // Python Autopep8
         // Flask Jinja
         "wholroyd.jinja", // Jinja
         // ==============================================================================================
@@ -137,11 +131,10 @@
         "cweijan.vscode-mysql-client2", // MySQL Client
         "adpyke.vscode-sql-formatter", // SQL Formatter
         // ==============================================================================================
-        // TOML/XML/RDF/OWL
+        // Configuration Files
         // ==============================================================================================
-        // TOML
         "tamasfe.even-better-toml", // Even Better TOML
-        // XML/RDF/OWL
+        "redhat.vscode-yaml", // YAML
         "redhat.vscode-xml", // XML
         "rdfox.rdfox-rdf", // RDFox Syntax Highlighting
         "stardog-union.stardog-rdf-grammars", // Stardog RDF Grammars
