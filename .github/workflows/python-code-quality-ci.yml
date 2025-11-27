@@ -1,4 +1,4 @@
-name: Python Ruff Lint and Format CI
+name: Python Code Quality CI
 
 on:
   push:
@@ -10,7 +10,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  ruff-lint-and-format:
+  # Linting and Formatting with Ruff
+  lint-and-format:
     runs-on: ubuntu-latest
     permissions:
       # Give the default GITHUB_TOKEN write permission to commit and push the
@@ -18,7 +19,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.head_ref }}
 
@@ -43,7 +44,32 @@ jobs:
       - name: "Run if changes have been detected"
         if: steps.auto-commit-action.outputs.changes_detected == 'true'
         run: echo "Changes!"
-
       - name: "Run if no changes have been detected"
         if: steps.auto-commit-action.outputs.changes_detected == 'false'
         run: echo "No Changes!"
+  # Type Checking with Pyright
+  type-consistency:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version-file: "pyproject.toml"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+        with:
+          version: "latest"
+      - name: Sync UV Dependencies
+        run: uv sync
+
+      - name: Add Virtual Environment to PATH
+        run: echo "$PWD/.venv/bin" >> $GITHUB_PATH
+
+      - name: Run Pyright Type Checker
+        uses: jakebailey/pyright-action@v2
+        with:
+          pylance-version: latest-release
