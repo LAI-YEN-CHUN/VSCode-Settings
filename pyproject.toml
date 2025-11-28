@@ -3,6 +3,8 @@ name = "workspace"
 version = "0.1.0"
 requires-python = "==3.12.*"
 dependencies = [
+    # Development Tools
+    "pre-commit",
     # PyTorch
     "torch==2.8.0",
     "torchvision==0.23.0",
@@ -39,3 +41,31 @@ torchaudio = [
 name = "pytorch-cu129"
 url = "https://download.pytorch.org/whl/cu129"
 explicit = true
+
+[tool.ruff]
+lint.select = ["E", "F", "I", "N", "B", "Q"]
+lint.ignore = [
+    # Style / Formatting
+    "E501", # Line too long
+    "E731", # Do not assign a lambda expression, use a def
+
+    # Import / Name
+    "F403", # from module import * used
+
+    # Docstring
+    "D100", # Missing function docstring
+    "D101", # Missing class docstring
+    "D102", # Missing method docstring
+    "D103", # Missing function docstring (overriding)
+    "D104", # Missing public method docstring
+    "D105", # Missing private method docstring
+    "D107", # Missing __init__ docstring
+
+    # Complexity / Best Practices
+    "C901", # Function or method too complex
+    "B901", # Usage of deprecated function or metho
+
+    # Miscellaneous
+    "T201", # print statement found
+    "S101", # assert statement found
+]

@@ -96,10 +96,6 @@
     },
     // The action to perform when shutting down: stop the Docker Compose services without removing containers or volumes
     "shutdownAction": "stopCompose",
-    // Uncomment the next line to use 'postCreateCommand' to run commands after the container is created.
-    // "postCreateCommand": "uname -a",
-    // Comment out to connect as root instead. To add a non-root user, see: https://aka.ms/vscode-remote/containers/non-root.
-    // "remoteUser": "vscode"
-    // Uncomment the next line to forward a port from the container to the host.
-    // "forwardPorts": [8888],
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "pre-commit install",
 }
