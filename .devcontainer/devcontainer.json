@@ -19,7 +19,8 @@
                 // File settings
                 "files.autoGuessEncoding": true, // Auto detect file encoding when opening a file
                 "files.trimTrailingWhitespace": true, // Remove trailing whitespace on save
-                "files.insertFinalNewline": false, // If true, insert a final newline at the end of the file on save
+                "files.trimFinalNewlines": true, // Remove extra newlines at end of file on save
+                "files.insertFinalNewline": true, // Ensure file ends with a newline
                 "files.associations": { // File associations
                     "*.json": "jsonc", // JSON with comments
                 },
@@ -31,6 +32,10 @@
                 // JSON and JSONC settings
                 "[json][jsonc]": {
                     "editor.defaultFormatter": "vscode.json-language-features" // Use built-in JSON formatter for JSON and JSONC files
+                },
+                // Markdown settings
+                "[markdown]": {
+                    "editor.defaultFormatter": "yzhang.markdown-all-in-one" // Use yzhang.markdown-all-in-one as the Markdown formatter
                 },
                 // Python settings
                 "[python]": {
