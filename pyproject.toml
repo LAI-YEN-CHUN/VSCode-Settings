@@ -3,8 +3,6 @@ name = "workspace"
 version = "0.1.0"
 requires-python = "==3.12.*"
 dependencies = [
-    # Development Tools
-    "pre-commit",
     # PyTorch
     "torch==2.8.0",
     "torchvision==0.23.0",
@@ -25,22 +23,41 @@ dependencies = [
     "openpyxl",
 ]
 
+[dependency-groups]
+dev = [
+    # Development Tools
+    "pre-commit",
+    "pyright",
+    "pytest",
+    "ruff",
+]
+
+[tool.uv]
+default-groups = ["dev"]
+
 [tool.uv.sources]
 torch = [
-    { index = "pytorch-cu129", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+    { index = "pytorch", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
 ]
 torchvision = [
-    { index = "pytorch-cu129", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+    { index = "pytorch", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
 ]
 torchaudio = [
-    { index = "pytorch-cu129", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
+    { index = "pytorch", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
 ]
 
-
 [[tool.uv.index]]
-name = "pytorch-cu129"
+name = "pytorch"
 url = "https://download.pytorch.org/whl/cu129"
 explicit = true
+
+[tool.pytest.ini_options]
+pythonpath = [".", "src"]
+
+[tool.pyright]
+# TODO: Change this to your actual virtual environment path
+venvPath = "/opt"
+venv = ".venv"
 
 [tool.ruff]
 lint.select = ["E", "F", "I", "N", "B", "Q"]

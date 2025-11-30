@@ -97,5 +97,5 @@
     // The action to perform when shutting down: stop the Docker Compose services without removing containers or volumes
     "shutdownAction": "stopCompose",
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "pre-commit install",
+    "postCreateCommand": "pre-commit install --install-hooks",
 }

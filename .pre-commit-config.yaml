@@ -2,6 +2,9 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: end-of-file-fixer
       - id: check-merge-conflict
       - id: check-toml
       - id: check-yaml
@@ -20,3 +23,7 @@ repos:
     rev: 0.9.13
     hooks:
       - id: uv-lock
+  - repo: https://github.com/RobertCraigie/pyright-python
+    rev: v1.1.407
+    hooks:
+      - id: pyright

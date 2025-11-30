@@ -99,7 +99,8 @@
     "files.defaultLanguage": "${activeEditorLanguage}", // ctrl+N 新建文件後默認的語言 (${activeEditorLanguage} 表示當前編輯器的語言)
     "files.autoGuessEncoding": true, // 自動偵測檔案編碼格式
     "files.trimTrailingWhitespace": true, // 保存時，刪除每一行末尾的空格
-    "files.insertFinalNewline": false, // 若為 true 則儲存後檔案最末尾加一整行空行
+    "files.trimFinalNewlines": true, // 若啟用，則會在儲存檔案時，修剪檔案末新行尾的所有新行。
+    "files.insertFinalNewline": true, // 保存時，確保檔案以換行符結尾
     // ========================================================================================================
     // Programming Language Environment Path Settings
     // ========================================================================================================
@@ -132,6 +133,10 @@
     // Json 設定
     "[json][jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features" // JSON 使用 VSCode 內建的格式化器
+    },
+    // Markdown 設定
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one" // 使用 yzhang.markdown-all-in-one 作為 Markdown 格式化器
     },
     // C/C++ 設定
     "C_Cpp.clang_format_sortIncludes": true, // 格式化時調整 include 的順序 (按字母排序)
