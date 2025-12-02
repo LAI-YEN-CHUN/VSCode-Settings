@@ -64,18 +64,10 @@ lint.select = ["E", "F", "I", "N", "B", "Q"]
 lint.ignore = [
     # Style / Formatting
     "E501", # Line too long
-    "E731", # Do not assign a lambda expression, use a def
-
-    # Import / Name
-    "F403", # from module import * used
 
     # Naming Conventions
     "N802", # Function name should be lowercase
-    "N803", # Argument name should be lowercase
-    "N806", # Variable in function should be lowercase
-    "N801", # Class name should use CapWords convention
     "N812", # Lowercase imports that are aliased to non-lowercase names
-    "N816", # MixedCase variable in function
 
     # Docstring
     "D100", # Missing function docstring
@@ -88,7 +80,6 @@ lint.ignore = [
 
     # Complexity / Best Practices
     "C901", # Function or method too complex
-    "B007", # Loop control variable not used within the loop body
     "B901", # Usage of deprecated function or method
 
     # Miscellaneous
