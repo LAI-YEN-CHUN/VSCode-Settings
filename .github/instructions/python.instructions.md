@@ -1,56 +1,141 @@
 ---
-description: "Python coding conventions and guidelines"
+description: "Python coding conventions and guidelines (modern best practices)"
 applyTo: "**/*.py, **/*.ipynb"
 ---
 
 # Python Coding Conventions
 
+These guidelines reflect **current Python best practices (Python 3.9+)** with an emphasis on readability, correctness, maintainability, and testability.
+
+---
+
 ## Python Instructions
 
--   Write clear and concise comments for each function.
--   Ensure functions have descriptive names and include type hints.
--   Provide docstrings following PEP 257 conventions.
--   Use the `typing` module for type annotations (e.g., `List[str]`, `Dict[str, int]`).
--   Break down complex functions into smaller, more manageable functions.
+- Write **clear, concise, and purposeful comments**. Comments should explain _why_ something is done, not restate _what_ the code already makes obvious.
+- Ensure all functions and methods have **descriptive, intention-revealing names**.
+- Use **type hints everywhere** (function arguments, return types, and important variables).
+- Prefer **built-in generic types** introduced in Python 3.9+:
+  - Use `list[str]`, `dict[str, int]`, `set[int]` instead of `List[str]`, `Dict[str, int]` unless required for backward compatibility.
+- Provide **docstrings that follow PEP 257**, written in complete sentences.
+- Keep functions **small and single-purpose**. If a function becomes complex, refactor it into smaller composable functions.
 
-## General Instructions
+---
 
--   Always prioritize readability and clarity.
--   For algorithm-related code, include explanations of the approach used.
--   Write code with good maintainability practices, including comments on why certain design decisions were made.
--   Handle edge cases and write clear exception handling.
--   For libraries or external dependencies, mention their usage and purpose in comments.
--   Use consistent naming conventions and follow language-specific best practices.
--   Write concise, efficient, and idiomatic code that is also easily understandable.
+## Documentation and Docstrings
 
-## Code Style and Formatting
+- Every public function, method, class, and module **must have a docstring**.
+- Docstrings should describe:
+  - What the function does
+  - Its parameters (including expected types and constraints)
+  - Return values
+  - Raised exceptions (if any)
+- Use a consistent docstring style (Google or NumPy style is acceptable; be consistent across the project).
 
--   Follow the **PEP 8** style guide for Python.
--   Maintain proper indentation (use 4 spaces for each level of indentation).
--   Ensure lines do not exceed 79 characters.
--   Place function and class docstrings immediately after the `def` or `class` keyword.
--   Use blank lines to separate functions, classes, and code blocks where appropriate.
-
-## Edge Cases and Testing
-
--   Always include test cases for critical paths of the application.
--   Account for common edge cases like empty inputs, invalid data types, and large datasets.
--   Include comments for edge cases and the expected behavior in those cases.
--   Write unit tests for functions and document them with docstrings explaining the test cases.
-
-## Example of Proper Documentation
+Example:
 
 ```python
 def calculate_area(radius: float) -> float:
     """
-    Calculate the area of a circle given the radius.
+    Calculate the area of a circle.
 
-    Parameters:
-    radius (float): The radius of the circle.
+    Args:
+        radius (float): Radius of the circle. Must be non-negative.
 
     Returns:
-    float: The area of the circle, calculated as π * radius^2.
+        float: Area of the circle (π × radius²).
+
+    Raises:
+        ValueError: If radius is negative.
     """
     import math
+
+    if radius < 0:
+        raise ValueError("radius must be non-negative")
+
     return math.pi * radius ** 2
 ```
+
+---
+
+## General Best Practices
+
+- **Readability over cleverness**. Prefer explicit code over implicit or overly compact constructs.
+- Follow the **principle of least surprise**: code behavior should be predictable.
+- Use **standard library modules** whenever possible instead of third-party dependencies.
+- Prefer:
+  - `pathlib` over `os.path`
+  - `logging` over `print`
+  - `dataclasses` for simple data containers
+- Avoid premature optimization; optimize only after measuring performance.
+- Document **design decisions** when the reasoning is non-obvious or when trade-offs are made.
+
+---
+
+## Error Handling and Edge Cases
+
+- Validate inputs early and fail fast with **clear, specific exceptions**.
+- Never silently ignore exceptions.
+- Catch exceptions only when you can handle them meaningfully.
+- Document edge cases explicitly, including:
+  - Empty inputs
+  - Invalid data types
+  - Boundary values
+  - Large datasets
+
+Example:
+
+```python
+if not items:
+    # Edge case: empty input returns zero by definition
+    return 0
+```
+
+---
+
+## Code Style and Formatting
+
+- All formatting and linting are enforced automatically via tooling (e.g. ruff).
+- Code reviews should focus on logic, correctness, and design — not formatting.
+
+---
+
+## Testing Guidelines
+
+- Write **unit tests for all critical logic paths**.
+- Tests should be:
+  - Deterministic
+  - Isolated
+  - Easy to understand
+- Prefer `pytest` for its readability and ecosystem.
+- Each test function must have a docstring explaining:
+  - What is being tested
+  - The scenario or edge case covered
+
+Example:
+
+```python
+def test_calculate_area_zero_radius():
+    """Verify that a zero radius returns an area of 0."""
+    assert calculate_area(0.0) == 0.0
+```
+
+---
+
+## Dependency Management
+
+- Clearly document third-party dependencies and their purpose.
+- Pin dependency versions for reproducibility.
+- Avoid unnecessary dependencies; each dependency should have a clear justification.
+
+---
+
+## Maintainability Checklist
+
+- Code is easy to read without additional explanation
+- Functions are short and focused
+- Naming is consistent and unambiguous
+- Edge cases are handled and documented
+- Types are explicit and accurate
+- Tests cover expected and failure scenarios
+
+Adhering to these conventions ensures Python codebases that are robust, maintainable, and aligned with modern industry standards.

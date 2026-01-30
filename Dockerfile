@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1
 FROM nvcr.io/nvidia/cuda:12.9.1-base-ubuntu24.04
 
 # Set the working directory
@@ -5,8 +6,10 @@ WORKDIR /workspace
 
 # Install Git and Bash Completion
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends git bash-completion && \
-    echo '[ -f /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion' >> /etc/bash.bashrc && \
+    apt-get install -y --no-install-recommends \
+    bash-completion \
+    git \
+    && \
     rm -rf /var/lib/apt/lists/*
 
 # Set environment variables for UV
@@ -20,9 +23,10 @@ ENV UV_LINK_MODE=copy \
 # Install UV and UVX from the official pre-built images
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-# Enable UV and UVX shell completions for bash
-RUN echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc && \
-    echo 'eval "$(uvx --generate-shell-completion bash)"' >> ~/.bashrc
+# Enable shell completions
+RUN echo '[ -f /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion' >> /etc/bash.bashrc && \
+    echo 'eval "$(uv generate-shell-completion bash)"' >> /etc/bash.bashrc && \
+    echo 'eval "$(uvx --generate-shell-completion bash)"' >> /etc/bash.bashrc
 
 # Install dependencies packaged
 RUN --mount=type=cache,target=/root/.cache/uv \
