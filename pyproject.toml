@@ -21,6 +21,7 @@ dependencies = [
     "tqdm",
     "seaborn",
     "openpyxl",
+    "gitpython",
 ]
 
 [dependency-groups]
