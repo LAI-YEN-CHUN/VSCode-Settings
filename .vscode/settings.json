@@ -10,6 +10,7 @@
     // VSCode 外觀設定 (UI/UX, Theme, Icon, Background)
     // ========================================================================================================
     // VSCode UI/UX 設定
+    "window.commandCenter": false, // 是否顯示上方的命令中心 (Command Center)
     "workbench.startupEditor": "none", // 關閉啟動時的歡迎頁面
     "workbench.sideBar.location": "left", // Primary Side Bar 的位置
     "workbench.activityBar.location": "default", // Activity Bar 的位置
@@ -26,6 +27,7 @@
     "editor.fontSize": 14, // 字體大小
     "editor.cursorWidth": 2, // 游標粗細
     "editor.detectIndentation": true, // 根據檔案內容，控制當檔案開啟時，是否自動偵測 tabSize 和 insertSpaces
+    "imageCarousel.explorerContextMenu.enabled": true, // 是否在檔案總管的右鍵選單中啟用 "在圖片輪播中打開" 的選項
     // Jupyter Notebook UI/UX 設定
     "notebook.lineNumbers": "on", // 在 Jupyter Notebook 中顯示行號
     // VSCode Color Theme 設定
@@ -216,8 +218,6 @@
         "markdown": true,
         "scminput": true
     },
-    "window.commandCenter": true, // 若要啟用 chat.commandCenter.enabled 設定，必須將此設定設為 true
-    "chat.commandCenter.enabled": true, // 是否在編輯器中啟用 Copilot Chat 指令中心按鈕
     "search.searchView.semanticSearchBehavior": "runOnEmpty", // 在搜尋檢視 (使用 AI 搜尋) 中的語意搜尋行為 (manual: 手動啟用，always: 總是啟用，runOnEmpty: 在搜尋結果為空時啟用)
     "workbench.commandPalette.experimental.askChatLocation": "chatView", // Ask Chat Location (chatView 會留下歷史記錄)
     "github.copilot.renameSuggestions.triggerAutomatically": true, // 是否自動觸發重命名建議
@@ -226,7 +226,10 @@
     "github.copilot.chat.localeOverride": "zh-TW", // 回應語言設定
     "github.copilot.chat.useProjectTemplates": true, // 使用 /new 時，是否使用專案模板
     "github.copilot.chat.scopeSelection": true, // 如果使用者使用 /explain 並且使用中編輯器沒有選取，是否提示使用者選取特定符號範圍
+    "github.copilot.chat.codesearch.enabled": true, // 是否啟用 #codebase 變數的代理人原始碼搜尋功能，嘗試多種不同的搜尋條件
+    "github.copilot.chat.newWorkspaceCreation.enabled": true, // 是否啟用 @workspce /new 命令，使用相關的 GitHub 專案作為專案範本
     "chat.detectParticipant.enabled": false, // 是否啟用自動檢測參與者 (true 似乎經常找錯聊天參與者)
+    "chat.autopilot.enabled": false, // 是否啟用自動駕駛模式 (Autopilot Mode)，若啟用時，Autopilot 會自動批准所有工具的呼叫，而不需要使用者的批准 (這可能會導致意外的行為，請謹慎使用)
     // GitHub Copilot Chat - 自訂指令設定
     "github.copilot.chat.codeGeneration.useInstructionFiles": true, // 控制來自 '.github/copilot-instructions.md' 的程式碼指示是否要新增到 Copilot 要求
     "chat.instructionsFilesLocations": {
@@ -241,27 +244,21 @@
     "github.copilot.chat.reviewSelection.enabled": true, // 是否啟用目前選取項目的程式碼檢閱
     // GitHub Copilot Chat - 測試相關設定
     "github.copilot.chat.setupTests.enabled": true, // 在 Chat View 啟用 /setupTests 命令，幫你快速在 VS Code 初始化測試相關設定
-    "github.copilot.chat.generateTests.codeLens": true, // 是否在編輯器中啟用生成測試的 CodeLens
     // GitHub Copilot Chat (Inline Chat) 設定
-    "inlineChat.holdToSpeech": true, // 啟用按住不放 Ctrl+U 或 Ctrl+I 開始語音對話
     "inlineChat.finishOnType": false, // 在編輯器中輸入時，自動結束 Inline Chat 對話 (true 會自動結束)
-    "github.copilot.chat.editor.temporalContext.enabled": true, // 是否要在 Copilot 要求中包含最近檢視及編輯過的檔案
-    // GitHub Copilot Edit 設定
-    "github.copilot.chat.edits.temporalContext.enabled": false, // 是否在編輯建議中包含最近檢視及編輯過的檔案
-    "github.copilot.chat.edits.suggestRelatedFilesForTests": true, // 是否在編輯建議中建議相關的測試檔案
-    "github.copilot.chat.edits.suggestRelatedFilesFromGitHistory": true, // 是否在編輯建議中建議相關的 Git 歷史檔案
-    "github.copilot.chat.codesearch.enabled": true, // 是否啟用 #codebase 變數的代理人原始碼搜尋功能，嘗試多種不同的搜尋條件
-    "github.copilot.chat.newWorkspaceCreation.enabled": true, // 是否啟用 @workspce /new 命令，使用相關的 GitHub 專案作為專案範本
     "chat.agent.enabled": true, // 是否啟用 Copilot Agent Mode
     "chat.agent.maxRequests": 50, // Agent Mode 最大編輯請求數量 (default: 15)
+    // GitHub Copilot Chat - 圖片相關設定
+    "chat.imageCarousel.enabled": true, // 是否啟用圖片輪播功能 (在 Copilot Chat 回應中包含多張圖片時，會以輪播的方式顯示)
     // GitHub Copilot Accessibility (Voice) 設定
     "accessibility.voice.speechLanguage": "zh-TW", // 設定語音輸入的語言為繁體中文
     "accessibility.voice.autoSynthesize": "off", // 是否在 Copilot 回應時自動合成語音
     "accessibility.voice.speechTimeout": 1500, // 停止語音輸入的時間 (毫秒)，如果在此時間內沒有語音輸入，則會自動結束語音輸入
     // ========================================================================================================
-    // Agent Skills 設定
+    // GitHub Copilot Chat - Agent Skills 設定
     // ========================================================================================================
     "chat.useAgentSkills": true, // 是否啟用 Agent Skills 功能
+    "chat.experimental.useSkillAdherencePrompt": true, // 是否啟用技能遵循提示，這會在 Agent Mode 中加入額外的提示詞，讓模型更傾向於使用技能來完成任務
     // ========================================================================================================
     // MCP (Model Context Protocol) 設定
     // ========================================================================================================

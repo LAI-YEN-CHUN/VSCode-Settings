@@ -1,4 +1,4 @@
-exclude: "^(.venv/|.github/skills/)"
+exclude: "^(.venv/|.github/skills/|.claude/skills/)"
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
