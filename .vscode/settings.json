@@ -32,9 +32,9 @@
     "notebook.lineNumbers": "on", // 在 Jupyter Notebook 中顯示行號
     // VSCode Color Theme 設定
     "window.autoDetectColorScheme": false, // 是否自動偵測作業系統的深色/淺色主題
-    "workbench.colorTheme": "Default Dark Modern", // 預設深色主題
-    "workbench.preferredDarkColorTheme": "Default Dark Modern", // 偏好的深色主題
-    "workbench.preferredLightColorTheme": "Default Light Modern", // 偏好的淺色主題
+    "workbench.colorTheme": "Dark Modern", // 預設深色主題
+    "workbench.preferredDarkColorTheme": "Dark Modern", // 偏好的深色主題
+    "workbench.preferredLightColorTheme": "Light Modern", // 偏好的淺色主題
     // VSCode Icon Theme 設定
     "workbench.iconTheme": "material-icon-theme", // Material Icon Theme 檔案圖示主題 (須安裝 PKief.material-icon-theme 套件)
     // VSCode Font 設定
